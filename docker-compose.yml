@@ -5,7 +5,7 @@ services:
         image: yamiodymel/chaturbate-dvr
         container_name: chaturbate-dvr
         ports:
-            - "8080:8080"
+            - "127.0.0.1:2444:2444"
         volumes:
             - ./videos:/usr/src/app/videos
             - ./conf:/usr/src/app/conf

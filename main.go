@@ -78,7 +78,7 @@ func main() {
 				Name:    "port",
 				Aliases: []string{"p"},
 				Usage:   "Port for the web interface and API",
-				Value:   "8080",
+				Value:   "2444",
 			},
 			&cli.IntFlag{
 				Name:  "interval",
@@ -129,7 +129,7 @@ func start(c *cli.Context) error {
 			return fmt.Errorf("load config: %w", err)
 		}
 
-		return router.SetupRouter().Run(":" + c.String("port"))
+		return router.SetupRouter().Run("127.0.0.1:" + c.String("port"))
 	}
 
 	// else create a channel with the provided username
