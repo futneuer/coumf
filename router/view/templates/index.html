@@ -14,7 +14,7 @@
         <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
         <link rel="manifest" href="/static/site.webmanifest">
-        <title>Chaturbate DVR</title>
+        <title>Stream Archiver</title>
     </head>
 
     <body hx-ext="sse">
@@ -23,7 +23,7 @@
             <!-- Header -->
             <div class="ts-grid is-bottom-aligned">
                 <div class="column is-fluid">
-                    <div class="ts-header is-huge is-uppercased is-heavy has-leading-small">Chaturbate DVR</div>
+                    <div class="ts-header is-huge is-uppercased is-heavy has-leading-small">Stream Archiver</div>
                     <div class="ts-text is-description is-bold">VERSION {{ .Config.Version }}</div>
                 </div>
                 <div class="column">
@@ -35,7 +35,7 @@
                 <div class="column">
                     <button class="ts-button is-start-icon" data-dialog="create-dialog">
                         <span class="ts-icon is-plus-icon"></span>
-                        Add Channel
+                        Add Stream
                     </button>
                 </div>
             </div>
@@ -46,12 +46,12 @@
             <div class="ts-divider has-vertically-spaced-large"></div>
             <div class="ts-blankslate">
                 <span class="ts-icon is-eye-low-vision-icon"></span>
-                <div class="header">No channels are currently recording</div>
-                <div class="description">Add a new Chaturbate channel to start recording.</div>
+                <div class="header">No streams are currently being archived</div>
+                <div class="description">Add a new stream to start archiving.</div>
                 <div class="action">
                     <button class="ts-button is-start-icon" data-dialog="create-dialog">
                         <span class="ts-icon is-plus-icon"></span>
-                        Add Channel
+                        Add Stream
                     </button>
                 </div>
             </div>
@@ -114,7 +114,7 @@
                                 <div class="ts-input">
                                     <textarea name="cookies" rows="5">{{ .Config.Cookies }}</textarea>
                                 </div>
-                                <div class="ts-text is-description has-top-spaced-small">Use semicolons to separate multiple cookies, e.g., "key1=value1; key2=value2". See <a class="ts-text is-link" href="https://github.com/teacat/chaturbate-dvr/?tab=readme-ov-file#-cookies--user-agent" target="_blank">README</a> for details.</div>
+                                <div class="ts-text is-description has-top-spaced-small">Use semicolons to separate multiple cookies, e.g., "key1=value1; key2=value2".</div>
                             </div>
                         </div>
                         <!-- / Cookies -->
@@ -126,7 +126,7 @@
                                 <div class="ts-input">
                                     <textarea name="user_agent" rows="5">{{ .Config.UserAgent }}</textarea>
                                 </div>
-                                <div class="ts-text is-description has-top-spaced-small">User-Agent can be found using tools like <a class="ts-text is-link" href="https://www.whatismybrowser.com/detect/what-is-my-user-agent/" target="_blank">WhatIsMyBrowser</a>.</div>
+                                <div class="ts-text is-description has-top-spaced-small">User-Agent string for authentication purposes.</div>
                             </div>
                         </div>
                         <!-- / User Agent -->
@@ -162,7 +162,7 @@
                     <div class="ts-content is-horizontally-padded is-secondary">
                         <div class="ts-grid">
                             <div class="column is-fluid">
-                                <div class="ts-header">Add Channel</div>
+                                <div class="ts-header">Add Stream</div>
                             </div>
                             <div class="column">
                                 <button type="reset" class="ts-close is-rounded is-large is-secondary" data-dialog="create-dialog"></button>
@@ -175,13 +175,13 @@
                     <div class="ts-content is-vertically-padded">
                         <!-- Channel Username -->
                         <div class="ts-control is-wide">
-                            <div class="label">Channel Username</div>
+                            <div class="label">Stream ID</div>
                             <div class="content">
                                 <div class="ts-input is-start-labeled">
                                     <div class="label">{{ .Config.Domain }}</div>
                                     <input type="text" name="username" autofocus required />
                                 </div>
-                                <div class="ts-text is-description has-top-spaced-small">Use commas to separate multiple channel names, e.g. "channel1, channel2, channel3".</div>
+                                <div class="ts-text is-description has-top-spaced-small">Use commas to separate multiple IDs, e.g. "stream1, stream2, stream3".</div>
                             </div>
                         </div>
                         <!-- / Channel Username -->
@@ -232,7 +232,7 @@
                                     <input type="text" name="pattern" value="{{ .Config.Pattern }}" />
                                 </div>
                                 <div class="ts-text is-description has-top-spaced-small">
-                                    See the <a class="ts-text is-external-link is-link" href="https://github.com/teacat/chaturbate-dvr" target="_blank">README</a> for details.
+                                    Pattern for organizing archived files.
                                 </div>
                             </div>
                         </div>
@@ -242,7 +242,7 @@
 
                         <!-- Splitting Options -->
                         <div class="ts-control is-wide has-top-spaced">
-                            <div class="label">Splitting Options</div>
+                            <div class="label">Archive Splitting Options</div>
                             <div class="content">
                                 <div class="ts-content is-padded is-secondary">
                                     <div class="ts-grid is-relaxed is-2-columns">
@@ -273,7 +273,7 @@
                     <div class="ts-content is-secondary is-horizontally-padded">
                         <div class="ts-wrap is-end-aligned">
                             <button type="reset" class="ts-button is-outlined is-secondary" data-dialog="create-dialog">Cancel</button>
-                            <button type="submit" class="ts-button is-primary">Add Channel</button>
+                            <button type="submit" class="ts-button is-primary">Add Stream</button>
                         </div>
                     </div>
                 </form>
